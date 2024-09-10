@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { compareSync as bcryptCompareSync } from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { AuthResponseDto } from '../../data/dtos/auth.dto';
-import { FindByUserNameService } from 'src/access/users/domain/use_cases/findbyusername.service';
+import { FindByUserNameService } from 'src/access/users/application/usecases/findbyusername.service';
 
 @Injectable()
 export class AuthService {
