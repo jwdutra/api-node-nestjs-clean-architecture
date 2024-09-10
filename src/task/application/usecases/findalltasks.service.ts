@@ -2,9 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { FindOptionsWhere, Like, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TaskEntity } from '../../domain/entities/task.entity';
-import { FindAllParameters, TaskDto } from 'src/task/application/dtos/task.dto';
+import { TaskDto } from 'src/task/application/dtos/task.dto';
 import { TaskMapper } from 'src/task/application/mappers/task.mapper';
 import { TypeOrmTaskRepository } from 'src/task/infrastructure/repositories/typeorm-task.repository';
+import { FindAllParameters } from '../interfaces/find-all-parameters.interface';
 
 @Injectable()
 export class FindAllTasksService {

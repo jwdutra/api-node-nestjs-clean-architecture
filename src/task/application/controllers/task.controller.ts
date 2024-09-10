@@ -9,13 +9,15 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { FindAllParameters, TaskDto, TaskRouteParameters } from '../dtos/task.dto';
+import { TaskDto } from '../dtos/task.dto';
 import { CreateTaskService } from '../usecases/createtask.service';
 import { FindTaskByIdService } from '../usecases/findtaskbyid.service';
 import { FindAllTasksService } from '../usecases/findalltasks.service';
 import { UpdateTaskService } from '../usecases/updatetask.service';
 import { RemoveTaskService } from '../usecases/removetask.service';
 import { AuthGuard } from 'src/infrastructure/auth.guard';
+import { TaskRouteParameters } from '../dtos/task-route-parameters.dto';
+import { FindAllParameters } from '../interfaces/find-all-parameters.interface';
 
 
 
