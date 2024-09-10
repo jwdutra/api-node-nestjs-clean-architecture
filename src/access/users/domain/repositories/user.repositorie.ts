@@ -1,7 +1,6 @@
-import { DeleteResult, FindOptionsWhere } from 'typeorm';
-import { CreateUserResponse, UserDto } from '../../application/dtos/user.dto';
+import { UserEntity } from '../entities/user.entity';
 
 export interface UserRepository {
-  createUser(newUser: UserDto): Promise<CreateUserResponse>;
-  findByUserName(username: string): Promise<UserDto | null>;
+  findUser(username: string): Promise<UserEntity | null>;
+  saveUser(newUser: UserEntity): Promise<UserEntity>;
 }

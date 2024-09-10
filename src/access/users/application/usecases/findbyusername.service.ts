@@ -1,20 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
-import { InjectRepository } from '@nestjs/typeorm';
-import { UserEntity } from '../../domain/entities/user.entity';
-import {  UserDto } from '../../application/dtos/user.dto';
+import { UserDto } from '../../application/dtos/user.dto';
+import { TypeOrmUserRepository } from '../../infrastructure/repositories/typeorm-user.repository';
 
 @Injectable()
 export class FindByUserNameService {
   constructor(
-    @InjectRepository(UserEntity)
-    private usersRepository: Repository<UserEntity>,
+    private usersRepository: TypeOrmUserRepository,
   ) {}
 
   async findByUserName(username: string): Promise<UserDto | null> {
-    const userFound = await this.usersRepository.findOne({
-      where: { username },
-    });
+    const userFound = await this.usersRepository.findUser(username);
 
     if (!userFound) {
       return null;
