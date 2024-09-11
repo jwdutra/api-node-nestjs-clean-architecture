@@ -3,13 +3,13 @@ import { hashSync as bcryptHashSync } from 'bcrypt';
 import { UserDto } from '../../application/dtos/user.dto';
 import { UserEntity } from '../../domain/entities/user.entity';
 import { FindByUserNameService } from './findbyusername.service';
-import { TypeOrmUserRepository } from '../../infrastructure/repositories/typeorm-user.repository';
+import { UserRepository } from '../../infrastructure/repositories/user.repository';
 import { CreateUserResponse } from '../interfaces/create-user-response.interface';
 
 @Injectable()
 export class CreateUserService {
   constructor(
-    private usersRepository: TypeOrmUserRepository,
+    private usersRepository: UserRepository,
     private findByUserNameService: FindByUserNameService,
   ) {}
 

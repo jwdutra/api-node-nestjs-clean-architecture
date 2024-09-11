@@ -1,13 +1,13 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { TaskEntity } from '../../domain/entities/task.entity';
 import { TaskMapper } from 'src/task/application/mappers/task.mapper';
-import { TypeOrmTaskRepository } from 'src/task/infrastructure/repositories/typeorm-task.repository';
+import { TaskRepository } from 'src/task/infrastructure/repositories/task.repository';
 
 @Injectable()
 export class FindTaskByIdService {
 
   constructor(
-    private taskRepository: TypeOrmTaskRepository,
+    private taskRepository: TaskRepository,
     private taskMapper: TaskMapper,
   ) { }
 

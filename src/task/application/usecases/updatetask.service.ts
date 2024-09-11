@@ -1,13 +1,13 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { TaskDto } from '../dtos/task.dto';
 import { TaskMapper } from '../mappers/task.mapper';
-import { TypeOrmTaskRepository } from 'src/task/infrastructure/repositories/typeorm-task.repository';
+import { TaskRepository } from 'src/task/infrastructure/repositories/task.repository';
 
 @Injectable()
 export class UpdateTaskService {
 
     constructor(
-      private taskRepository: TypeOrmTaskRepository,
+      private taskRepository: TaskRepository,
       private taskMapper: TaskMapper,
     ) { }
     

@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { UserDto } from '../../application/dtos/user.dto';
-import { TypeOrmUserRepository } from '../../infrastructure/repositories/typeorm-user.repository';
+import { UserRepository } from '../../infrastructure/repositories/user.repository';
 
 @Injectable()
 export class FindByUserNameService {
   constructor(
-    private usersRepository: TypeOrmUserRepository,
+    private usersRepository: UserRepository,
   ) {}
 
   async findByUserName(username: string): Promise<UserDto | null> {

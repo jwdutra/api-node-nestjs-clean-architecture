@@ -3,13 +3,13 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TaskEntity } from '../../domain/entities/task.entity';
-import { TypeOrmTaskRepository } from 'src/task/infrastructure/repositories/typeorm-task.repository';
+import { TaskRepository } from 'src/task/infrastructure/repositories/task.repository';
 
 @Injectable()
 export class RemoveTaskService {
 
   constructor(
-    private taskRepository: TypeOrmTaskRepository,
+    private taskRepository: TaskRepository,
   ) { }
 
   async remove(id: string) {

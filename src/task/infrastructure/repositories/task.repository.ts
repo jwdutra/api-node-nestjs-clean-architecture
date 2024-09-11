@@ -2,10 +2,10 @@ import { DeleteResult, FindOptionsWhere, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable } from '@nestjs/common';
 import { TaskEntity } from 'src/task/domain/entities/task.entity';
-import { TaskRepository } from 'src/task/domain/repositories/task.repositorie';
+import { ITaskRepository } from 'src/task/domain/repositories/task.repository.interface';
 
 @Injectable()
-export class TypeOrmTaskRepository implements TaskRepository {
+export class TaskRepository implements ITaskRepository {
   constructor(
     @InjectRepository(TaskEntity)
     private readonly repository: Repository<TaskEntity>,

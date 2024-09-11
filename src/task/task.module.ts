@@ -8,7 +8,7 @@ import { TaskMapper } from './application/mappers/task.mapper';
 import { FindAllTasksService } from './application/usecases/findalltasks.service';
 import { UpdateTaskService } from './application/usecases/updatetask.service';
 import { RemoveTaskService } from './application/usecases/removetask.service';
-import { TypeOrmTaskRepository } from './infrastructure/repositories/typeorm-task.repository';
+import { TaskRepository } from './infrastructure/repositories/task.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([TaskEntity])],
@@ -20,8 +20,8 @@ import { TypeOrmTaskRepository } from './infrastructure/repositories/typeorm-tas
     UpdateTaskService,
     RemoveTaskService,
     TaskMapper,
-    TypeOrmTaskRepository,
+    TaskRepository,
   ],
-  exports: [TypeOrmTaskRepository],
+  exports: [TaskRepository],
 })
 export class TaskModule { }

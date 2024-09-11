@@ -4,13 +4,13 @@ import { TaskEntity } from '../../domain/entities/task.entity';
 import { TaskDto } from 'src/task/application/dtos/task.dto';
 import { TaskMapper } from 'src/task/application/mappers/task.mapper';
 import { TaskStatusEnum } from '../../domain/value-objects/task-status.enum';
-import { TypeOrmTaskRepository } from 'src/task/infrastructure/repositories/typeorm-task.repository';
+import { TaskRepository } from 'src/task/infrastructure/repositories/task.repository';
 
 @Injectable()
 export class CreateTaskService {
 
   constructor(
-    private taskRepository: TypeOrmTaskRepository,
+    private taskRepository: TaskRepository,
     private taskMapper: TaskMapper,
   ) { }
 

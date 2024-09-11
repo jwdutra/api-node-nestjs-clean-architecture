@@ -4,20 +4,18 @@ import { UserEntity } from 'src/access/users/domain/entities/user.entity';
 import { UsersController } from './application/controllers/users.controller';
 import { CreateUserService } from './application/usecases/createuser.service';
 import { FindByUserNameService } from './application/usecases/findbyusername.service';
-import { TypeOrmUserRepository } from './infrastructure/repositories/typeorm-user.repository';
+import { UserRepository } from './infrastructure/repositories/user.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UserEntity])],
   providers: [
-    CreateUserService,
-    FindByUserNameService,
-    TypeOrmUserRepository,
-  ],
+    CreateUserService, 
+    FindByUserNameService, 
+    UserRepository],
   exports: [
-    CreateUserService,
-    FindByUserNameService,
-    TypeOrmUserRepository,
-  ],
+    CreateUserService, 
+    FindByUserNameService, 
+    UserRepository],
   controllers: [UsersController],
 })
 export class UsersModule {}
