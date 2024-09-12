@@ -5,9 +5,10 @@ import { TaskStatusEnum } from '../../domain/value-objects/task-status.enum';
 import { TaskMapper } from '../mappers/task.mapper';
 import { TaskDto } from '../dtos/task.dto';
 import { ITaskRepository } from '../../domain/repositories/task.repository.interface';
+import { ICreateTaskService } from './interfaces/create-task.service.interface';
 
 @Injectable()
-export class CreateTaskService {
+export class CreateTaskService implements ICreateTaskService {
 
   constructor(
     @Inject('ITaskRepository') private readonly taskRepository: ITaskRepository,

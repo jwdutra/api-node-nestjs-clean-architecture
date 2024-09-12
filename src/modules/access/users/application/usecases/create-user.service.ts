@@ -2,7 +2,7 @@ import { ConflictException, Inject, Injectable } from '@nestjs/common';
 import { hashSync as bcryptHashSync } from 'bcrypt';
 import { UserDto } from '../../application/dtos/user.dto';
 import { UserEntity } from '../../domain/entities/user.entity';
-import { FindByUserNameService } from './findbyusername.service';
+import { FindByUserNameService } from './find-by-user-name.service';
 import { CreateUserResponse } from '../interfaces/create-user-response.interface';
 import { IUserRepository } from '../../domain/repositories/user.repository.interface';
 

@@ -10,11 +10,11 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { TaskDto } from '../dtos/task.dto';
-import { CreateTaskService } from '../usecases/createtask.service';
-import { FindTaskByIdService } from '../usecases/findtaskbyid.service';
-import { FindAllTasksService } from '../usecases/findalltasks.service';
-import { UpdateTaskService } from '../usecases/updatetask.service';
-import { RemoveTaskService } from '../usecases/removetask.service';
+import { CreateTaskService } from '../usecases/create-task.service';
+import { FindTaskByIdService } from '../usecases/find-task-by-id.service';
+import { FindAllTasksService } from '../usecases/find-all-tasks.service';
+import { UpdateTaskService } from '../usecases/update-task.service';
+import { RemoveTaskService } from '../usecases/remove-task.service';
 import { AuthGuard } from 'src/infrastructure/auth.guard';
 import { TaskRouteParameters } from '../dtos/task-route-parameters.dto';
 import { FindAllParameters } from '../interfaces/find-all-parameters.interface';

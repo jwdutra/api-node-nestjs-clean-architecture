@@ -2,16 +2,17 @@ import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { TaskDto } from '../dtos/task.dto';
 import { TaskMapper } from '../mappers/task.mapper';
 import { ITaskRepository } from '../../domain/repositories/task.repository.interface';
+import { IUpdateTaskService } from './interfaces/update-task.service.interface';
 
 @Injectable()
-export class UpdateTaskService {
+export class UpdateTaskService implements IUpdateTaskService {
 
     constructor(
       @Inject('ITaskRepository') private readonly taskRepository: ITaskRepository,
       private taskMapper: TaskMapper,
     ) { }
     
-      async update(id: string, task: TaskDto) {
+      async update(id: string, task: TaskDto): Promise<void>  {
         const foundTask = await this.taskRepository.findTaskById(id)
     
         if (!foundTask) {

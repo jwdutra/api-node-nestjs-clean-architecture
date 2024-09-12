@@ -3,9 +3,10 @@ import { FindAllParameters } from '../interfaces/find-all-parameters.interface';
 import { TaskMapper } from '../mappers/task.mapper';
 import { TaskDto } from '../dtos/task.dto';
 import { ITaskRepository } from '../../domain/repositories/task.repository.interface';
+import { IFindAllTasksService } from './interfaces/find-all-tasks.service.interface';
 
 @Injectable()
-export class FindAllTasksService {
+export class FindAllTasksService implements IFindAllTasksService {
 
     constructor(
       @Inject('ITaskRepository') private readonly taskRepository: ITaskRepository,

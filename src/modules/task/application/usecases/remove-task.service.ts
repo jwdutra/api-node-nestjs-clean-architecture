@@ -1,15 +1,16 @@
 
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { ITaskRepository } from '../../domain/repositories/task.repository.interface';
+import { IRemoveTaskService } from './interfaces/remove-task.service.interface';
 
 @Injectable()
-export class RemoveTaskService {
+export class RemoveTaskService implements IRemoveTaskService {
 
   constructor(
     @Inject('ITaskRepository') private readonly taskRepository: ITaskRepository,
   ) { }
 
-  async remove(id: string) {
+  async remove(id: string): Promise<void> {
 
     const result = await this.taskRepository.deleteTask(id)
 

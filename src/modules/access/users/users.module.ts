@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersController } from './application/controllers/users.controller';
-import { CreateUserService } from './application/usecases/createuser.service';
-import { FindByUserNameService } from './application/usecases/findbyusername.service';
+import { CreateUserService } from './application/usecases/create-user.service';
+import { FindByUserNameService } from './application/usecases/find-by-user-name.service';
 import { UserRepository } from './infrastructure/repositories/user.repository';
 import { UserEntity } from './domain/entities/user.entity';
 
