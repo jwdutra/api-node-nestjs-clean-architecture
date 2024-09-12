@@ -1,17 +1,18 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { AuthResponseDto } from '../dtos/auth.dto';
-import { FindByUserNameService } from 'src/modules/access/users/application/usecases/find-by-user-name.service';
 import { IAuthRepository } from '../../domain/repositories/auth.repository.interface';
+import { IFindByUserNameService } from 'src/modules/access/users/application/usecases/interfaces/find-by-user-name.service.interface';
+import { IAuthService } from './interfaces/auth.service.interface';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements IAuthService{
   constructor(
-    private readonly findUserByUsername: FindByUserNameService,
+    @Inject('IFindByUserNameService') private readonly findByUserNameService: IFindByUserNameService,
     @Inject('IAuthRepository') private readonly authRepository: IAuthRepository,
   ) {}
 
   async signIn(username: string, password: string): Promise<AuthResponseDto> {
-    const foundUser = await this.findUserByUsername.findByUserName(username);
+    const foundUser = await this.findByUserNameService.findByUserName(username);
     if (
       !foundUser ||
       !this.authRepository.bcryptCompare(password, foundUser.password)
