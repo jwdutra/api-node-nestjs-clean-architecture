@@ -15,16 +15,24 @@ import { TaskRepository } from './infrastructure/repositories/task.repository';
   controllers: [TaskController],
   providers: [
     CreateTaskService,
+    { provide: 'ICreateTaskService', useClass: CreateTaskService, },
+    { provide: 'IFindTaskByIdService', useClass: FindTaskByIdService, },
+    { provide: 'IFindAllTasksService', useClass: FindAllTasksService, },
+    { provide: 'IUpdateTaskService', useClass: UpdateTaskService, },
+    { provide: 'IRemoveTaskService', useClass: RemoveTaskService, },
     FindTaskByIdService,
     FindAllTasksService,
     UpdateTaskService,
     RemoveTaskService,
     TaskMapper,
-    {
-      provide: 'ITaskRepository',
-      useClass: TaskRepository,
-    },
+    { provide: 'ITaskRepository', useClass: TaskRepository, },
   ],
-  exports: ['ITaskRepository'],
+  exports: [
+    'ITaskRepository', 
+    'ICreateTaskService', 
+    'IFindAllTasksService', 
+    'IFindTaskByIdService', 
+    'IUpdateTaskService', 
+    'IRemoveTaskService'],
 })
 export class TaskModule { }

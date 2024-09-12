@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  Inject,
   Param,
   Post,
   Put,
@@ -10,27 +11,24 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { TaskDto } from '../dtos/task.dto';
-import { CreateTaskService } from '../usecases/create-task.service';
-import { FindTaskByIdService } from '../usecases/find-task-by-id.service';
-import { FindAllTasksService } from '../usecases/find-all-tasks.service';
-import { UpdateTaskService } from '../usecases/update-task.service';
-import { RemoveTaskService } from '../usecases/remove-task.service';
 import { AuthGuard } from 'src/infrastructure/auth.guard';
 import { TaskRouteParameters } from '../dtos/task-route-parameters.dto';
 import { FindAllParameters } from '../interfaces/find-all-parameters.interface';
-
-
+import { ICreateTaskService } from '../usecases/interfaces/create-task.service.interface';
+import { IFindTaskByIdService } from '../usecases/interfaces/find-task-by-id.service.interface';
+import { IFindAllTasksService } from '../usecases/interfaces/find-all-tasks.service.interface';
+import { IUpdateTaskService } from '../usecases/interfaces/update-task.service.interface';
+import { IRemoveTaskService } from '../usecases/interfaces/remove-task.service.interface';
 
 @UseGuards(AuthGuard)
 @Controller('task')
 export class TaskController {
   constructor(
-    private readonly createTaskService: CreateTaskService,
-    private readonly findTaskByIdService: FindTaskByIdService,
-    private readonly findAllTasksService: FindAllTasksService,
-    private readonly updateTaskService: UpdateTaskService,
-    private readonly removeTaskService: RemoveTaskService,
-
+    @Inject('ICreateTaskService') private readonly createTaskService: ICreateTaskService,
+    @Inject('IFindTaskByIdService') private readonly findTaskByIdService: IFindTaskByIdService,
+    @Inject('IFindAllTasksService') private readonly findAllTasksService: IFindAllTasksService,
+    @Inject('IUpdateTaskService') private readonly updateTaskService: IUpdateTaskService,
+    @Inject('IRemoveTaskService') private readonly removeTaskService: IRemoveTaskService,
   ) { }
 
   @Post()
