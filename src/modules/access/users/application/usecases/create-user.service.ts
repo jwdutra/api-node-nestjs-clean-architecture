@@ -2,15 +2,16 @@ import { ConflictException, Inject, Injectable } from '@nestjs/common';
 import { hashSync as bcryptHashSync } from 'bcrypt';
 import { UserDto } from '../../application/dtos/user.dto';
 import { UserEntity } from '../../domain/entities/user.entity';
-import { FindByUserNameService } from './find-by-user-name.service';
 import { CreateUserResponse } from '../interfaces/create-user-response.interface';
 import { IUserRepository } from '../../domain/repositories/user.repository.interface';
+import { ICreateUserService } from './interfaces/create-user.service.interface';
+import { IFindByUserNameService } from './interfaces/find-by-user-name.service.interface';
 
 @Injectable()
-export class CreateUserService {
+export class CreateUserService implements ICreateUserService{
   constructor(
     @Inject('IUserRepository') private readonly usersRepository: IUserRepository,
-    private findByUserNameService: FindByUserNameService,
+    @Inject('IFindByUserNameService') private readonly findByUserNameService: IFindByUserNameService,
   ) {}
 
   async createUser(newUser: UserDto): Promise<CreateUserResponse> {

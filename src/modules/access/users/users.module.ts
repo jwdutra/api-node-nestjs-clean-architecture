@@ -9,16 +9,13 @@ import { UserEntity } from './domain/entities/user.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([UserEntity])],
   providers: [
-    CreateUserService, 
+    { provide: 'ICreateUserService', useClass: CreateUserService, },
+    { provide: 'IFindByUserNameService', useClass: FindByUserNameService, },
     FindByUserNameService, 
-    {
-      provide: 'IUserRepository',
-      useClass: UserRepository,
-    },
+    { provide: 'IUserRepository', useClass: UserRepository, },
   ],
   exports: [
     FindByUserNameService, 
-    'IUserRepository',
   ],
   controllers: [UsersController],
 })
