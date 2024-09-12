@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { AuthResponseDto } from '../dtos/auth.dto';
-import { FindByUserNameService } from 'src/access/users/application/usecases/findbyusername.service';
 import { AuthRepository } from '../../infrastructure/repositories/auth.repository';
+import { FindByUserNameService } from 'src/modules/access/users/application/usecases/findbyusername.service';
 
 @Injectable()
 export class AuthService {

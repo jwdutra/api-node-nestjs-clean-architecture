@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { TaskDto } from '../dtos/task.dto';
 import { TaskMapper } from '../mappers/task.mapper';
-import { TaskRepository } from 'src/task/infrastructure/repositories/task.repository';
+import { TaskRepository } from '../../infrastructure/repositories/task.repository';
 
 @Injectable()
 export class UpdateTaskService {
@@ -12,7 +12,7 @@ export class UpdateTaskService {
     ) { }
     
       async update(id: string, task: TaskDto) {
-        const foundTask = await this.taskRepository.findById(id)
+        const foundTask = await this.taskRepository.findTaskById(id)
     
         if (!foundTask) {
           throw new HttpException(
@@ -21,7 +21,7 @@ export class UpdateTaskService {
           );
         }
     
-        await this.taskRepository.update(id, this.taskMapper.mapDtoToEntity(task));
+        await this.taskRepository.updateTask(id, this.taskMapper.mapDtoToEntity(task));
       }
 
 

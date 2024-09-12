@@ -1,10 +1,10 @@
 
 import { Injectable } from '@nestjs/common';
 import { TaskEntity } from '../../domain/entities/task.entity';
-import { TaskDto } from 'src/task/application/dtos/task.dto';
-import { TaskMapper } from 'src/task/application/mappers/task.mapper';
 import { TaskStatusEnum } from '../../domain/value-objects/task-status.enum';
-import { TaskRepository } from 'src/task/infrastructure/repositories/task.repository';
+import { TaskRepository } from '../../infrastructure/repositories/task.repository';
+import { TaskMapper } from '../mappers/task.mapper';
+import { TaskDto } from '../dtos/task.dto';
 
 @Injectable()
 export class CreateTaskService {
@@ -20,7 +20,7 @@ export class CreateTaskService {
       status: TaskStatusEnum.TO_DO,
     };
 
-    const createdTask = await this.taskRepository.save(taskToSave);
+    const createdTask = await this.taskRepository.saveTask(taskToSave);
     return this.taskMapper.mapEntityToDto(createdTask);
   }
 

@@ -1,8 +1,9 @@
 import { ConfigService } from '@nestjs/config';
 import { config } from 'dotenv';
+import { UserEntity } from 'src/modules/access/users/domain/entities/user.entity';
+import { TaskEntity } from 'src/modules/task/domain/entities/task.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
-import { TaskEntity } from 'src/task/domain/entities/task.entity';
-import { UserEntity } from 'src/access/users/domain/entities/user.entity';
+
 
 config();
 

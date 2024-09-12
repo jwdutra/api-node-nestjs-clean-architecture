@@ -1,6 +1,6 @@
-import { AccessModule } from './access/access.module';
+import { AccessModule } from './modules/access/access.module';
 import { Module } from '@nestjs/common';
-import { TaskModule } from './task/task.module';
+import { TaskModule } from './modules/task/task.module';
 import { ConfigModule } from '@nestjs/config';
 import { DbModule } from './infrastructure/db/db.module';
 

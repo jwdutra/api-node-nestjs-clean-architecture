@@ -7,7 +7,7 @@ import {
   MaxLength,
   MinLength,
 } from 'class-validator';
-import { TaskStatusEnum } from 'src/task/domain/value-objects/task-status.enum';
+import { TaskStatusEnum } from 'src/modules/task/domain/value-objects/task-status.enum';
 
 
 export class TaskDto {

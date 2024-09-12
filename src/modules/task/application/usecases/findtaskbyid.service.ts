@@ -1,7 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { TaskEntity } from '../../domain/entities/task.entity';
-import { TaskMapper } from 'src/task/application/mappers/task.mapper';
-import { TaskRepository } from 'src/task/infrastructure/repositories/task.repository';
+import { TaskRepository } from '../../infrastructure/repositories/task.repository';
+import { TaskMapper } from '../mappers/task.mapper';
+
 
 @Injectable()
 export class FindTaskByIdService {
@@ -12,7 +13,7 @@ export class FindTaskByIdService {
   ) { }
 
   async findById(id: string): Promise<TaskEntity> {
-    const foundTask = await this.taskRepository.findById(id)
+    const foundTask = await this.taskRepository.findTaskById(id)
 
     if (!foundTask) {
       throw new HttpException(

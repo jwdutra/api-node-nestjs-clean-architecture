@@ -1,9 +1,6 @@
 
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
-import { InjectRepository } from '@nestjs/typeorm';
-import { TaskEntity } from '../../domain/entities/task.entity';
-import { TaskRepository } from 'src/task/infrastructure/repositories/task.repository';
+import { TaskRepository } from '../../infrastructure/repositories/task.repository';
 
 @Injectable()
 export class RemoveTaskService {
@@ -14,7 +11,7 @@ export class RemoveTaskService {
 
   async remove(id: string) {
 
-    const result = await this.taskRepository.delete(id)
+    const result = await this.taskRepository.deleteTask(id)
 
     if (!result.affected) {
       throw new HttpException(
