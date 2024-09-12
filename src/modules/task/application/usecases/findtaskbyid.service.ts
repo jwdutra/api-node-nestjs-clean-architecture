@@ -1,14 +1,14 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { TaskEntity } from '../../domain/entities/task.entity';
-import { TaskRepository } from '../../infrastructure/repositories/task.repository';
 import { TaskMapper } from '../mappers/task.mapper';
+import { ITaskRepository } from '../../domain/repositories/task.repository.interface';
 
 
 @Injectable()
 export class FindTaskByIdService {
 
   constructor(
-    private taskRepository: TaskRepository,
+    @Inject('ITaskRepository') private readonly taskRepository: ITaskRepository,
     private taskMapper: TaskMapper,
   ) { }
 

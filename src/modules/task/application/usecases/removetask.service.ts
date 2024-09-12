@@ -1,12 +1,12 @@
 
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { TaskRepository } from '../../infrastructure/repositories/task.repository';
+import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
+import { ITaskRepository } from '../../domain/repositories/task.repository.interface';
 
 @Injectable()
 export class RemoveTaskService {
 
   constructor(
-    private taskRepository: TaskRepository,
+    @Inject('ITaskRepository') private readonly taskRepository: ITaskRepository,
   ) { }
 
   async remove(id: string) {

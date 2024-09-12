@@ -1,13 +1,13 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { TaskDto } from '../dtos/task.dto';
 import { TaskMapper } from '../mappers/task.mapper';
-import { TaskRepository } from '../../infrastructure/repositories/task.repository';
+import { ITaskRepository } from '../../domain/repositories/task.repository.interface';
 
 @Injectable()
 export class UpdateTaskService {
 
     constructor(
-      private taskRepository: TaskRepository,
+      @Inject('ITaskRepository') private readonly taskRepository: ITaskRepository,
       private taskMapper: TaskMapper,
     ) { }
     

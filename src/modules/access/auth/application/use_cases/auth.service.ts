@@ -1,13 +1,13 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { AuthResponseDto } from '../dtos/auth.dto';
-import { AuthRepository } from '../../infrastructure/repositories/auth.repository';
 import { FindByUserNameService } from 'src/modules/access/users/application/usecases/findbyusername.service';
+import { IAuthRepository } from '../../domain/repositories/auth.repository.interface';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly findUserByUsername: FindByUserNameService,
-    private readonly authRepository: AuthRepository,
+    @Inject('IAuthRepository') private readonly authRepository: IAuthRepository,
   ) {}
 
   async signIn(username: string, password: string): Promise<AuthResponseDto> {

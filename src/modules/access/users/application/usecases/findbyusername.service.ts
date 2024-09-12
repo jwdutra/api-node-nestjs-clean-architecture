@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { UserDto } from '../../application/dtos/user.dto';
-import { UserRepository } from '../../infrastructure/repositories/user.repository';
+import { IUserRepository } from '../../domain/repositories/user.repository.interface';
 
 @Injectable()
 export class FindByUserNameService {
   constructor(
-    private usersRepository: UserRepository,
+    @Inject('IUserRepository') private readonly usersRepository: IUserRepository,
   ) {}
 
   async findByUserName(username: string): Promise<UserDto | null> {

@@ -1,16 +1,16 @@
 
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { TaskEntity } from '../../domain/entities/task.entity';
 import { TaskStatusEnum } from '../../domain/value-objects/task-status.enum';
-import { TaskRepository } from '../../infrastructure/repositories/task.repository';
 import { TaskMapper } from '../mappers/task.mapper';
 import { TaskDto } from '../dtos/task.dto';
+import { ITaskRepository } from '../../domain/repositories/task.repository.interface';
 
 @Injectable()
 export class CreateTaskService {
 
   constructor(
-    private taskRepository: TaskRepository,
+    @Inject('ITaskRepository') private readonly taskRepository: ITaskRepository,
     private taskMapper: TaskMapper,
   ) { }
 

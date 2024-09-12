@@ -20,8 +20,11 @@ import { TaskRepository } from './infrastructure/repositories/task.repository';
     UpdateTaskService,
     RemoveTaskService,
     TaskMapper,
-    TaskRepository,
+    {
+      provide: 'ITaskRepository',
+      useClass: TaskRepository,
+    },
   ],
-  exports: [TaskRepository],
+  exports: ['ITaskRepository'],
 })
 export class TaskModule { }

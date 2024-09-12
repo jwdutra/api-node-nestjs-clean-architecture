@@ -22,7 +22,14 @@ import { AuthRepository } from './infrastructure/repositories/auth.repository';
     UsersModule,
   ],
   controllers: [AuthController],
-  providers: [AuthService, AuthRepository],
-  exports: [AuthRepository],
+  providers: [
+    AuthService, 
+    {
+      provide: 'IAuthRepository',
+      useClass: AuthRepository,
+    },
+
+  ],
+  exports: ['IAuthRepository'],
 })
 export class AuthModule {}

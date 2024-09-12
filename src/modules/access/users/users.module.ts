@@ -11,11 +11,15 @@ import { UserEntity } from './domain/entities/user.entity';
   providers: [
     CreateUserService, 
     FindByUserNameService, 
-    UserRepository],
+    {
+      provide: 'IUserRepository',
+      useClass: UserRepository,
+    },
+  ],
   exports: [
-    CreateUserService, 
     FindByUserNameService, 
-    UserRepository],
+    'IUserRepository',
+  ],
   controllers: [UsersController],
 })
 export class UsersModule {}
