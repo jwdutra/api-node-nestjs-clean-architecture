@@ -15,7 +15,6 @@ import * as path from 'path';
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
         entities: [
-          //__dirname + '/entities/**',
           path.join(__dirname, '/entities', '**'),
           path.join(__dirname, '..','..', '**', '**', 'domain', 'entities', '**'),
           path.join(__dirname, '..','..', '**', 'domain', 'entities', '**'),
