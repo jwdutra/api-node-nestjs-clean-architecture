@@ -1,11 +1,11 @@
 import { ConflictException, Inject, Injectable } from '@nestjs/common';
 import { hashSync as bcryptHashSync } from 'bcrypt';
 import { UserDto } from '../../application/dtos/user.dto';
-import { UserEntity } from '../../domain/entities/user.entity';
 import { CreateUserResponse } from '../interfaces/create-user-response.interface';
 import { ICreateUserService } from './interfaces/create-user.service.interface';
 import { IFindByUserNameService } from './interfaces/find-by-user-name.service.interface';
-import { IUserRepository } from '../repositories/user.repository.interface';
+import { IUserRepository } from '../../domain/repositories/user.repository.interface';
+import { UserEntity } from '../../infrastructure/persistence-entities/user.entity';
 
 @Injectable()
 export class CreateUserService implements ICreateUserService{

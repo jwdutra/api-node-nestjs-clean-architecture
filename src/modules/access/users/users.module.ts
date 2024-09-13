@@ -3,8 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CreateUserService } from './application/usecases/create-user.service';
 import { FindByUserNameService } from './application/usecases/find-by-user-name.service';
 import { UserRepository } from './infrastructure/repositories/user.repository';
-import { UserEntity } from './domain/entities/user.entity';
 import { UsersController } from './adapters/controllers/users.controller';
+import { UserEntity } from './infrastructure/persistence-entities/user.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UserEntity])],

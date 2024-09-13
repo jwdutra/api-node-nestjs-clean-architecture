@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { UserDto } from '../dtos/user.dto';
 import { IFindByUserNameService } from './interfaces/find-by-user-name.service.interface';
-import { IUserRepository } from '../repositories/user.repository.interface';
+import { IUserRepository } from '../../domain/repositories/user.repository.interface';
 
 @Injectable()
 export class FindByUserNameService implements IFindByUserNameService {

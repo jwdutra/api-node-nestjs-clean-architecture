@@ -16,8 +16,8 @@ import * as path from 'path';
         database: configService.get<string>('DB_NAME'),
         entities: [
           path.join(__dirname, '/entities', '**'),
-          path.join(__dirname, '..','..', '**', '**', 'domain', 'entities', '**'),
-          path.join(__dirname, '..','..', '**', 'domain', 'entities', '**'),
+          path.join(__dirname, '..','..', '**', '**', 'infrastructure', 'persistence-entities', '**'),
+          path.join(__dirname, '..','..', '**', 'infrastructure', 'persistence-entities', '**'),
         ],
         migrations: [
           __dirname + '/migrations/*.ts'

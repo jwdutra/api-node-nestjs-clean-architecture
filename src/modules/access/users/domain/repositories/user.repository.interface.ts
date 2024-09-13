@@ -1,4 +1,5 @@
-import { UserEntity } from "../../domain/entities/user.entity";
+import { UserEntity } from "../../infrastructure/persistence-entities/user.entity";
+
 
 export interface IUserRepository {
   findUser(username: string): Promise<UserEntity | null>;

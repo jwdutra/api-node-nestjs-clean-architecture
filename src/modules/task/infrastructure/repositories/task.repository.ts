@@ -1,8 +1,8 @@
 import { DeleteResult, FindOptionsWhere, Like, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Injectable } from '@nestjs/common';
-import { TaskEntity } from '../../domain/entities/task.entity';
-import { ITaskRepository } from '../../application/repositories/task.repository.interface';
+import { ITaskRepository } from '../../domain/repositories/task.repository.interface';
+import { TaskEntity } from '../persistence-entities/task.entity';
 
 @Injectable()
 export class TaskRepository implements ITaskRepository {

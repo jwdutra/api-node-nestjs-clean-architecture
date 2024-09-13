@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { TaskDto } from '../dtos/task.dto';
 import { TaskMapper } from '../mappers/task.mapper';
 import { IUpdateTaskService } from './interfaces/update-task.service.interface';
-import { ITaskRepository } from '../repositories/task.repository.interface';
+import { ITaskRepository } from '../../domain/repositories/task.repository.interface';
 
 @Injectable()
 export class UpdateTaskService implements IUpdateTaskService {
