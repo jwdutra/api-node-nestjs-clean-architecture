@@ -1,5 +1,5 @@
 import { DeleteResult, FindOptionsWhere } from 'typeorm';
-import { TaskEntity } from '../entities/task.entity';
+import { TaskEntity } from '../../domain/entities/task.entity';
 
 export interface ITaskRepository {
   saveTask(task: TaskEntity): Promise<TaskEntity>;

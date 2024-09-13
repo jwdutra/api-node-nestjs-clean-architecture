@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TaskController } from './application/controllers/task.controller';
 import { TaskEntity } from './domain/entities/task.entity';
 import { CreateTaskService } from './application/usecases/create-task.service';
 import { FindTaskByIdService } from './application/usecases/find-task-by-id.service';
@@ -9,6 +8,7 @@ import { FindAllTasksService } from './application/usecases/find-all-tasks.servi
 import { UpdateTaskService } from './application/usecases/update-task.service';
 import { RemoveTaskService } from './application/usecases/remove-task.service';
 import { TaskRepository } from './infrastructure/repositories/task.repository';
+import { TaskController } from './adapters/controllers/task.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([TaskEntity])],

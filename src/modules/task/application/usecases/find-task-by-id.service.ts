@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { TaskEntity } from '../../domain/entities/task.entity';
 import { TaskMapper } from '../mappers/task.mapper';
-import { ITaskRepository } from '../../domain/repositories/task.repository.interface';
+import { ITaskRepository } from '../repositories/task.repository.interface';
 
 
 @Injectable()

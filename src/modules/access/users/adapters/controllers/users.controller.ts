@@ -1,9 +1,7 @@
 import { Body, Controller, Inject, Post } from '@nestjs/common';
-import { UserDto } from '../dtos/user.dto';
-import { CreateUserService } from '../usecases/create-user.service';
-import { CreateUserResponse } from '../interfaces/create-user-response.interface';
-import { ICreateUserService } from '../usecases/interfaces/create-user.service.interface';
-
+import { ICreateUserService } from '../../application/usecases/interfaces/create-user.service.interface';
+import { UserDto } from '../../application/dtos/user.dto';
+import { CreateUserResponse } from '../../application/interfaces/create-user-response.interface';
 
 @Controller('users')
 export class UsersController {

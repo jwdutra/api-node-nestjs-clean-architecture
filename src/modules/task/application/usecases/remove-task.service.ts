@@ -1,7 +1,7 @@
 
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
-import { ITaskRepository } from '../../domain/repositories/task.repository.interface';
 import { IRemoveTaskService } from './interfaces/remove-task.service.interface';
+import { ITaskRepository } from '../repositories/task.repository.interface';
 
 @Injectable()
 export class RemoveTaskService implements IRemoveTaskService {

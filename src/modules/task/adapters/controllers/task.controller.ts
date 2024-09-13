@@ -10,15 +10,15 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { TaskDto } from '../dtos/task.dto';
 import { AuthGuard } from 'src/infrastructure/auth.guard';
-import { TaskRouteParameters } from '../dtos/task-route-parameters.dto';
-import { FindAllParameters } from '../interfaces/find-all-parameters.interface';
-import { ICreateTaskService } from '../usecases/interfaces/create-task.service.interface';
-import { IFindTaskByIdService } from '../usecases/interfaces/find-task-by-id.service.interface';
-import { IFindAllTasksService } from '../usecases/interfaces/find-all-tasks.service.interface';
-import { IUpdateTaskService } from '../usecases/interfaces/update-task.service.interface';
-import { IRemoveTaskService } from '../usecases/interfaces/remove-task.service.interface';
+import { TaskDto } from '../../application/dtos/task.dto';
+import { ICreateTaskService } from '../../application/usecases/interfaces/create-task.service.interface';
+import { IFindTaskByIdService } from '../../application/usecases/interfaces/find-task-by-id.service.interface';
+import { IFindAllTasksService } from '../../application/usecases/interfaces/find-all-tasks.service.interface';
+import { IUpdateTaskService } from '../../application/usecases/interfaces/update-task.service.interface';
+import { IRemoveTaskService } from '../../application/usecases/interfaces/remove-task.service.interface';
+import { FindAllParameters } from '../../application/interfaces/find-all-parameters.interface';
+import { TaskRouteParameters } from '../../application/dtos/task-route-parameters.dto';
 
 @UseGuards(AuthGuard)
 @Controller('task')
