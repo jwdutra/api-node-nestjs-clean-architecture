@@ -1,4 +1,4 @@
-# API modular Nodejs com Nestjs aplicando Clean Architecture e princípios SOLID.
+# API em Nodejs com Nestjs aplicando Clean Architecture e princípios SOLID.
 
 ![node](https://github.com/user-attachments/assets/81cfd103-ce6a-4228-8258-bfabe85814be)
 
