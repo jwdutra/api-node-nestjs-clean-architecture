@@ -1,30 +1,49 @@
-# Task Management API
+# API modular Nodejs com Nestjs aplicando Clean Architecture e princípios SOLID.
+
+![node](https://github.com/user-attachments/assets/81cfd103-ce6a-4228-8258-bfabe85814be)
 
 ## Introdução
 
-Projeto criado para meu portfólio e para o curso gratuito de Nest JS no meu [canal do Youtube](https://www.youtube.com/@BrenoVeras-dev). Nele iremos abordar os seguintes recursos:
+Projeto criado para referência e implementação de APIs utilizando Node.ns e boas práticas aplicando Clean Architecture e princípios SOLID. Nele iremos abordar os seguintes recursos:
 
-- CRUD de tarefas (Controllers, Decorators, Services, Modules)
+- CRUD de tarefas 
 - Validação de DTO com class-validator
 - Variáveis de ambiente com ConfigService
 - Autenticação (JwtService, App guard)
 - Password hash
-- Banco de dados - TODO
+- Banco de dados - PostgeSQL
+- Clean Architecture
+- SOLID
+- Docker Compose para inicialização do banco de dados
+
+## Clean Architecture
+
+A Clean Architecture é uma abordagem de design de software que visa criar sistemas mais modulares, testáveis e de fácil manutenção. Ao aplicá-la em um projeto Node.js com NestJS, os benefícios são amplamente evidentes devido à estrutura já modular e bem organizada do NestJS, que facilita a implementação de princípios da Clean Architecture. Aqui estão os principais benefícios:
+
+- Desacoplamento de frameworks
+- Manutenção Facilitada
+- Testabilidade
+- Evolução Gradual
+- Reutilização de Código
+- Claridade e Consistência
+- Escalabilidade
+
+A Clean Architecture em um projeto Node.js com NestJS melhora a manutenibilidade, testabilidade e flexibilidade do sistema, permitindo que o código seja mais fácil de evoluir, adaptar e escalar. Essa abordagem não só promove uma organização modular, mas também reduz o risco de acoplamento excessivo, facilitando a vida do time de desenvolvimento ao longo do ciclo de vida do projeto.
+
+## SOLID
+
+Os princípios SOLID são fundamentais para a criação de software modular e bem estruturado, e sua aplicação em um projeto utilizando Clean Architecture e NestJS traz inúmeros benefícios. Cada um dos princípios SOLID contribui diretamente para a organização e manutenibilidade do código, especialmente quando usado em um framework como NestJS, que já incentiva boas práticas de design de software.
+
+A aplicação dos princípios SOLID em um projeto de Clean Architecture com NestJS resulta em um sistema mais modular, flexível, e preparado para mudanças. NestJS já oferece suporte nativo a várias práticas recomendadas, como injeção de dependências e organização modular, que, quando combinadas com a Clean Architecture e SOLID, permitem a criação de software escalável, fácil de manter e altamente testável. A separação clara entre responsabilidades, a criação de abstrações e o desacoplamento entre camadas garantem que o código seja sustentável a longo prazo, mantendo sua integridade mesmo com a adição de novas funcionalidades ou mudanças estruturais.
+
 
 ## Instalação
 
 ### Pré-requisitos
 
-Esse projeto foi desenvolvido utilizando a seguinte versão do node:
+Versão Node:
 
 [Node v18.12.0 LTS](https://nodejs.org/en/blog/release/v18.12.0)
-
-### Passos de Instalação
-
-1. Clone o repositório: `git clone git@github.com:deyvissonbrenoveras/task-management-api.git`
-2. Navegue até o diretório do projeto: `cd task-management-api`
-3. Instale as dependências: `npm install`
-
 
 ## Configuração
 
@@ -55,10 +74,9 @@ Reverter as migrations:
   npm run migration:revert
 ```  
 
-
 ## Uso
 
-O task-management-api expõe um endpoint para cadastro, atualização, busca e exclusão de tarefas. também foi desenvolvido um endpoint para criação de usuários e um endpoint de autenticação, onde é possível realizar o login passando um usuário e senha.
+O projeto expõe um endpoint para cadastro, atualização, busca e exclusão de tarefas. também foi desenvolvido um endpoint para criação de usuários e um endpoint de autenticação, onde é possível realizar o login passando um usuário e senha.
 
 ### Curls
 
