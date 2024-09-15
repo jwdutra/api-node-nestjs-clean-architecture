@@ -1,8 +1,8 @@
 {
-  "name": "task-management-api",
+  "name": "nodejs-nestjs-typeorm-clean-architecture",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "José Walter Pereira Dutra",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

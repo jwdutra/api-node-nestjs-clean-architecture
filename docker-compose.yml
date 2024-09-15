@@ -3,10 +3,10 @@ version: '3.8'
 services:
   postgres:
     image: postgres:latest
-    container_name: task-management-api-db
+    container_name: task-management-clean-arrchitecture
     ports:
       - "5432:5432"
     environment:
       POSTGRES_DB: tasks
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 12345678
+      POSTGRES_PASSWORD: 123456

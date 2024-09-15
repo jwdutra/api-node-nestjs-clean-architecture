@@ -4,7 +4,7 @@
 
 ## Introdução
 
-Projeto criado para referência e implementação de APIs utilizando Node.ns e boas práticas aplicando Clean Architecture e princípios SOLID. Nele iremos abordar os seguintes recursos:
+Projeto criado para referência e implementação de APIs utilizando Node.js e boas práticas aplicando Clean Architecture e princípios SOLID. Nele iremos abordar os seguintes recursos:
 
 - CRUD de tarefas 
 - Validação de DTO com class-validator
@@ -154,3 +154,7 @@ curl --request DELETE \
   --url http://localhost:3000/task/uuid-here \
   --header 'Authorization: Bearer token'
 ```
+
+
+Este projeto teve como referência inicial uma implementação de Task Management API de deyvissonbrenoveras. 
+Você pode encontrar esta implementação em https://github.com/deyvissonbrenoveras/task-management-api
