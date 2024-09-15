@@ -11,7 +11,7 @@ Projeto criado para referência e implementação de APIs utilizando Node.js e b
 - Variáveis de ambiente com ConfigService
 - Autenticação (JwtService, App guard)
 - Password hash
-- Banco de dados - PostgeSQL
+- Banco de dados - PostgreSQL
 - Clean Architecture
 - SOLID
 - Docker Compose para inicialização do banco de dados
